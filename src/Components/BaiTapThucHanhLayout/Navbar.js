@@ -21,7 +21,7 @@ export default class Navbar extends Component {
               <span className="navbar-toggler-icon" />
             </button>
             <div
-              className="collapse navbar-collapse"
+              className="collapse navbar-collapse d-flex justify-content-end"
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">

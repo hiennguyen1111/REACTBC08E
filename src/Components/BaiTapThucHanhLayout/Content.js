@@ -13,14 +13,14 @@ export default class Content extends Component {
                 src="https://picsum.photos/200/200"
                 alt="Card image cap"
               />
-              <div className="card-body text-center">
+              <div className="card-body text-center border">
                 <h5 className="card-title fw-bold">Card title</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
               </div>
-              <div className="card-footer text-center">
+              <div className="card-footer text-center border">
                 <a className="btn btn-primary btn-lg" href="#!">
                   Find out more!
                 </a>
@@ -33,14 +33,14 @@ export default class Content extends Component {
                 src="https://picsum.photos/200/200"
                 alt="Card image cap"
               />
-              <div className="card-body text-center">
+              <div className="card-body text-center border">
                 <h5 className="card-title fw-bold">Card title</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
               </div>
-              <div className="card-footer text-center">
+              <div className="card-footer text-center border">
                 <a className="btn btn-primary btn-lg" href="#!">
                   Find out more!
                 </a>
@@ -53,14 +53,14 @@ export default class Content extends Component {
                 src="https://picsum.photos/200/200"
                 alt="Card image cap"
               />
-              <div className="card-body text-center">
+              <div className="card-body text-center border">
                 <h5 className="card-title fw-bold">Card title</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
               </div>
-              <div className="card-footer text-center">
+              <div className="card-footer text-center border">
                 <a className="btn btn-primary btn-lg" href="#!">
                   Find out more!
                 </a>
@@ -73,14 +73,14 @@ export default class Content extends Component {
                 src="https://picsum.photos/200/200"
                 alt="Card image cap"
               />
-              <div className="card-body text-center">
+              <div className="card-body text-center border">
                 <h5 className="card-title fw-bold">Card title</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
               </div>
-              <div className="card-footer text-center">
+              <div className="card-footer text-center border">
                 <a className="btn btn-primary btn-lg" href="#!">
                   Find out more!
                 </a>
