@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 
-export default class Content extends Component {
+export default class Item extends Component {
   render() {
     return (
       <div className="pt-4">
         <div className="container px-lg-5">
-          {/* Page Features*/}
           <div className="row gx-lg-5">
             <div className="col-lg-3 col-xxl-2 mb-5">
               <img
