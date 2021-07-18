@@ -8,10 +8,12 @@
 // import BaiTapthucHanhLayout from "./Components/BaiTapThucHanhLayout/BaiTapthucHanhLayout";
 // import Demo from "./Databinding/Demo";
 // import HandleEvent from "./HandleEvent/HandleEvent";
+// import StyleComponent from "./StyleComponent/StyleComponent";
+// import StateDemo from "./StateDemo/StateDemo";
+// import HomeLayout from "./Props/DemoProps/HomeLayout";
+// import RenderWithMap from "./Props/DemoProps/RenderWithMap/RenderWithMap";
+import ShoesShop from "./Props/ShoesShop/ShoesShop";
 
-//import StyleComponent from "./StyleComponent/StyleComponent";
-
-import StateDemo from "./StateDemo/StateDemo";
 
 function App() {
   return (
@@ -25,7 +27,10 @@ function App() {
     {/* <HandleEvent></HandleEvent> */}
     {/* <StyleComponent />
     <p className="">hello</p> */}
-    <StateDemo />
+    {/* <StateDemo /> */}
+    {/* <HomeLayout /> */}
+    {/* <RenderWithMap /> */}
+    <ShoesShop />
     </div>
   );
 }
