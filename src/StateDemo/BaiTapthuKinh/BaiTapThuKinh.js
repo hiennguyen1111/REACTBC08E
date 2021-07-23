@@ -85,7 +85,6 @@ export default class BaiTapThuKinh extends Component {
   };
 
   // xemChiTiet = (clickAnh) => {
-  //   console.log("clickAnh", clickAnh);
   //   // set lai state khi click
   //   this.setState({
   //     chiTietSanPham: clickAnh,
@@ -149,103 +148,112 @@ export default class BaiTapThuKinh extends Component {
 
         <div className="flex-container">
           <div>
-            <a href="#1">
-              <img
+            <button className="btn btn-outline-dark"><img
                 src="./img/Glasses/v1.png"
                 alt="..."
+                width={140}
+                height={60}
                 onClick={() => {
                   this.handleChangeGlass("1");
                 }}
-              />
-            </a>
+              /></button>
+            
           </div>
           <div>
-            <a href="#2">
-              <img
+          <button className="btn btn-outline-dark"><img
                 src="./img/Glasses/v2.png"
                 alt="..."
+                width={140}
+                height={60}
                 onClick={() => {
                   this.handleChangeGlass("2");
                 }}
-              />
-            </a>
+              /></button>
+            
           </div>
           <div>
-            <a href="#3">
-              <img
+          <button className="btn btn-outline-dark"><img
                 src="./img/Glasses/v3.png"
                 alt="..."
+                width={140}
+                height={60}
                 onClick={() => {
                   this.handleChangeGlass("3");
                 }}
-              />
-            </a>
+              /></button>
+            
           </div>
           <div>
-            <a href="#4">
-              <img
+          <button className="btn btn-outline-dark"><img
                 src="./img/Glasses/v4.png"
                 alt="..."
+                width={140}
+                height={60}
                 onClick={() => {
                   this.handleChangeGlass("4");
                 }}
-              />
-            </a>
+              /></button>
+            
           </div>
           <div>
-            <a href="#5">
-              <img
+          <button className="btn btn-outline-dark"><img
                 src="./img/Glasses/v5.png"
                 alt="..."
+                width={140}
+                height={60}
                 onClick={() => {
                   this.handleChangeGlass("5");
                 }}
-              />
-            </a>
+              /></button>
+            
           </div>
           <div>
-            <a href="#6">
-              <img
+          <button className="btn btn-outline-dark"><img
                 src="./img/Glasses/v6.png"
                 alt="..."
+                width={140}
+                height={60}
                 onClick={() => {
                   this.handleChangeGlass("6");
                 }}
-              />
-            </a>
+              /></button>
+            
           </div>
           <div>
-            <a href="#7">
-              <img
+          <button className="btn btn-outline-dark"><img
                 src="./img/Glasses/v7.png"
                 alt="..."
+                width={140}
+                height={60}
                 onClick={() => {
                   this.handleChangeGlass("7");
                 }}
-              />
-            </a>
+              /></button>
+            
           </div>
           <div>
-            <a href="#8">
-              <img
+          <button className="btn btn-outline-dark"><img
                 src="./img/Glasses/v8.png"
                 alt="..."
+                width={140}
+                height={60}
                 onClick={() => {
                   this.handleChangeGlass("8");
                 }}
-              />
-            </a>
+              /></button>
+            
           </div>
           <div>
-            <a href="#9">
-              <img
+          <button className="btn btn-outline-dark"><img
                 src="./img/Glasses/v9.png"
                 alt="..."
+                width={140}
+                height={60}
                 onClick={() => {
                   this.handleChangeGlass("9");
                 }}
-              />
-            </a>
+              /></button>
+            
           </div>
         </div>
         <div className="pt-5"></div>

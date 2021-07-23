@@ -122,13 +122,14 @@ code {
 .flex-container div {
   padding: 25px 20px;
 }
-.flex-container div img {
-  border: 1px solid black;
+.flex-container button {
   text-align: center;
-  max-width: 140px;
-  height: 70px;
   box-sizing: border-box;
 }
+.flex-container button:hover {
+  background-color: #fff;
+}
+
 header {
   width: 100%;
   background: rgba(0,0,0,0.5);
