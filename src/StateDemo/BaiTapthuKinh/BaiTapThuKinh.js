@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LoaiKinh from "./LoaiKinh";
-
+import Kinh from "./Kinh";
 export default class BaiTapThuKinh extends Component {
   arrGlasses = [
     {
@@ -77,37 +77,32 @@ export default class BaiTapThuKinh extends Component {
       desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
   };
-
-  handleChangeGlass = (glassNo) => {
+  
+  // Thay vì truyền id thì sẽ truyền cả object
+  handleChangeGlass = (objSanPham) => {
     this.setState({
-      imgSrc: `./img/Glasses/v${glassNo}.png`,
-    });
-  };
-
-  // xemChiTiet = (clickAnh) => {
-  //   // set lai state khi click
-  //   this.setState({
-  //     chiTietSanPham: clickAnh,
-  //   });
-  // };
-
-  renderKinh = () => {
-    return this.arrGlasses.map((kinh, index) => {
-      return <div className="col-6 text-center after" key={index}>
-          <LoaiKinh loaiKinh={kinh} />
-        </div>
+      chiTietSanPham:objSanPham,
     });
   };
   
+  renderKinh = ()=>{
+    return this.arrGlasses.map((item, index)=>{
+      return(
+        <>
+          <Kinh key={index} sanPham={item} handleChangeGlass={this.handleChangeGlass}  />
+        </>
+      )
+    })
+  }
   render() {
-    // let {chiTietSanPham} = this.state;
+    let { chiTietSanPham } = this.state;
     return (
       <div className="container-fluid">
         <header>
           <h3 className="text-center text-white p-4">TRY GLASSES APP ONLINE</h3>
         </header>
         <div className="d-flex justify-content-around">
-          {/* {this.renderKinh()} */}
+
           <div className="col-6 text-center after">
             <img
               id="model"
@@ -120,18 +115,15 @@ export default class BaiTapThuKinh extends Component {
             <div className="detail">
               <img
                 id="glass"
-                src="./img/Glasses/v1.png"
+                src={chiTietSanPham.url}
                 alt="..."
                 width={140}
                 height={60}
               />
 
               <div id="text">
-                <h4>GUCCI G8850U</h4>
-                <p>
-                  Light pink square lenses define these sunglasses, ending with
-                  amother of pearl effect tip.
-                </p>
+                <h4>{chiTietSanPham.name}</h4>
+                <p>{chiTietSanPham.desc}</p>
               </div>
             </div>
           </div>
@@ -145,117 +137,9 @@ export default class BaiTapThuKinh extends Component {
             />
           </div>
         </div>
-
-        <div className="flex-container">
-          <div>
-            <button className="btn btn-outline-dark"><img
-                src="./img/Glasses/v1.png"
-                alt="..."
-                width={140}
-                height={60}
-                onClick={() => {
-                  this.handleChangeGlass("1");
-                }}
-              /></button>
-            
-          </div>
-          <div>
-          <button className="btn btn-outline-dark"><img
-                src="./img/Glasses/v2.png"
-                alt="..."
-                width={140}
-                height={60}
-                onClick={() => {
-                  this.handleChangeGlass("2");
-                }}
-              /></button>
-            
-          </div>
-          <div>
-          <button className="btn btn-outline-dark"><img
-                src="./img/Glasses/v3.png"
-                alt="..."
-                width={140}
-                height={60}
-                onClick={() => {
-                  this.handleChangeGlass("3");
-                }}
-              /></button>
-            
-          </div>
-          <div>
-          <button className="btn btn-outline-dark"><img
-                src="./img/Glasses/v4.png"
-                alt="..."
-                width={140}
-                height={60}
-                onClick={() => {
-                  this.handleChangeGlass("4");
-                }}
-              /></button>
-            
-          </div>
-          <div>
-          <button className="btn btn-outline-dark"><img
-                src="./img/Glasses/v5.png"
-                alt="..."
-                width={140}
-                height={60}
-                onClick={() => {
-                  this.handleChangeGlass("5");
-                }}
-              /></button>
-            
-          </div>
-          <div>
-          <button className="btn btn-outline-dark"><img
-                src="./img/Glasses/v6.png"
-                alt="..."
-                width={140}
-                height={60}
-                onClick={() => {
-                  this.handleChangeGlass("6");
-                }}
-              /></button>
-            
-          </div>
-          <div>
-          <button className="btn btn-outline-dark"><img
-                src="./img/Glasses/v7.png"
-                alt="..."
-                width={140}
-                height={60}
-                onClick={() => {
-                  this.handleChangeGlass("7");
-                }}
-              /></button>
-            
-          </div>
-          <div>
-          <button className="btn btn-outline-dark"><img
-                src="./img/Glasses/v8.png"
-                alt="..."
-                width={140}
-                height={60}
-                onClick={() => {
-                  this.handleChangeGlass("8");
-                }}
-              /></button>
-            
-          </div>
-          <div>
-          <button className="btn btn-outline-dark"><img
-                src="./img/Glasses/v9.png"
-                alt="..."
-                width={140}
-                height={60}
-                onClick={() => {
-                  this.handleChangeGlass("9");
-                }}
-              /></button>
-            
-          </div>
-        </div>
+        
+         {this.renderKinh()}
+        
         <div className="pt-5"></div>
       </div>
     );

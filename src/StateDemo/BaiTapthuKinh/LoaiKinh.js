@@ -12,7 +12,6 @@ export default class LoaiKinh extends Component {
           width={250}
           height={300}
         />
-
         <div className="detail">
           <img
             id="glass"
@@ -21,7 +20,6 @@ export default class LoaiKinh extends Component {
             width={140}
             height={60}
           />
-
           <div id="text">
             <h4>{loaiKinh.name}</h4>
             <p>{loaiKinh.desc}</p>
