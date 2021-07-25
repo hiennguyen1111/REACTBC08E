@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LoaiKinh from "./LoaiKinh";
+// import LoaiKinh from "./LoaiKinh";
 import Kinh from "./Kinh";
 export default class BaiTapThuKinh extends Component {
   arrGlasses = [
