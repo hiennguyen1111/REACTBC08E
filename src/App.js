@@ -17,8 +17,8 @@
 // import ExcerciseCarStore from "./Props/ExcercisecarStore/ExcerciseCarStore";
 // import BaiTapThuKinh from "./StateDemo/BaiTapthuKinh/BaiTapThuKinh";
 // import ExcerciseCart from "./Props/ExerciseCart/ExcerciseCart";
-import BaiTapGioHang from "./DemoRedux/BaiTapGioHang/BaiTapGioHang";
-
+// import BaiTapGioHang from "./DemoRedux/BaiTapGioHang/BaiTapGioHang";
+import BaiTapGameXucXac from "./DemoRedux/BaiTapGameXucXac/BaiTapGameXucXac";
 
 
 
@@ -42,7 +42,8 @@ function App() {
     {/* <ExcerciseCarStore /> */}
     {/* <BaiTapThuKinh /> */}
     {/* <ExcerciseCart /> */}
-    <BaiTapGioHang />
+    {/* <BaiTapGioHang /> */}
+    <BaiTapGameXucXac />
     </div>
   );
 }
