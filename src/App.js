@@ -19,8 +19,8 @@
 // import ExcerciseCart from "./Props/ExerciseCart/ExcerciseCart";
 // import BaiTapGioHang from "./DemoRedux/BaiTapGioHang/BaiTapGioHang";
 // import BaiTapGameXucXac from "./DemoRedux/BaiTapGameXucXac/BaiTapGameXucXac";
-import BaiTapQuanLyNguoiDung from "./DemoRedux/BaiTapQuanLyNguoiDung/BaiTapQuanLyNguoiDung";
-
+// import BaiTapQuanLyNguoiDung from "./DemoRedux/BaiTapQuanLyNguoiDung/BaiTapQuanLyNguoiDung";
+import BaiTapOanTuXi from "./DemoRedux/BaiTapOanTuXi/BaiTapOanTuXi";
 
 function App() {
   return (
@@ -44,7 +44,8 @@ function App() {
     {/* <ExcerciseCart /> */}
     {/* <BaiTapGioHang /> */}
     {/* <BaiTapGameXucXac /> */}
-    <BaiTapQuanLyNguoiDung />
+    {/* <BaiTapQuanLyNguoiDung /> */}
+    <BaiTapOanTuXi />
     </div>
   );
 }

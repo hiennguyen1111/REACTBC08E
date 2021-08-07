@@ -4,12 +4,15 @@ import { gioHangReducer } from "./reducers/gioHangReducer";
 import { BaiTapGameXucXacReducer } from "./reducers/BaiTapGameXucXacReducer";
 import { baiTapQuanLyNguoiDungReducer } from "./reducers/baiTapQuanLyNguoiDungReducer";
 
+import { BaiTapOanTuXiReducer } from "./reducers/BaiTapOanTuXiReducer";
+
 // state trong redux se co ten goi moi: reducer va no chua function
 const rootReducer = combineReducers({
   // Cac state ung dung se dc luu tai day, ngan cach boi dau phay
   gioHangReducer: gioHangReducer,
   BaiTapGameXucXacReducer: BaiTapGameXucXacReducer,
-  baiTapQuanLyNguoiDungReducer: baiTapQuanLyNguoiDungReducer
+  baiTapQuanLyNguoiDungReducer: baiTapQuanLyNguoiDungReducer,
+  BaiTapOanTuXiReducer: BaiTapOanTuXiReducer,
 
 //   reducerB: (state='',action) => {
 //     console.log('action2', action);
