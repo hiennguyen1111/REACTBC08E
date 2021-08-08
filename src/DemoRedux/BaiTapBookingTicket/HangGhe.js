@@ -1,20 +1,31 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
+import { datGheAction } from '../../redux/actions/BaiTapBookingTicketActions'
 
-export default class HangGhe extends Component {
+
+class HangGhe extends Component {
   renderGhe = () => {
     return this.props.hangGhe.danhSachGhe.map((ghe, index) => {
       let cssGheDaDat = "";
       let disabled = false;
+      // Trang thai ghe da dat roi
       if (ghe.daDat) {
         cssGheDaDat = "gheDuocChon";
         disabled = true;
       }
 
+      // Xet trang thai ghe dang dat
+      let cssGheDangDat = '';
+      let indexGheDangDat = this.props.danhSachGheDangDat.findIndex(gheDangDat=>gheDangDat.soGhe===ghe.soGhe);
+      if(indexGheDangDat !== -1){
+        cssGheDangDat = 'gheDangChon'
+      }
+      
       return (
         <button
-          onClick={() => {}}
+          onClick={() => {this.props.datGhe(ghe)}}
           disabled={disabled}
-          className={`ghe ${cssGheDaDat}`}
+          className={`ghe ${cssGheDaDat} ${cssGheDangDat}`}
           key={index}
         >
           {ghe.soGhe}
@@ -56,3 +67,19 @@ export default class HangGhe extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    danhSachGheDangDat: state.BaiTapBookingTicketReducer.danhSachGheDangDat
+  }
+}
+
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    datGhe: (ghe)=>{
+      dispatch(datGheAction(ghe))
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(HangGhe);

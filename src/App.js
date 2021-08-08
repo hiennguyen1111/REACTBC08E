@@ -19,10 +19,10 @@
 // import ExcerciseCart from "./Props/ExerciseCart/ExcerciseCart";
 // import BaiTapGioHang from "./DemoRedux/BaiTapGioHang/BaiTapGioHang";
 // import BaiTapGameXucXac from "./DemoRedux/BaiTapGameXucXac/BaiTapGameXucXac";
-import BaiTapQuanLyNguoiDung from "./DemoRedux/BaiTapQuanLyNguoiDung/BaiTapQuanLyNguoiDung";
+// import BaiTapQuanLyNguoiDung from "./DemoRedux/BaiTapQuanLyNguoiDung/BaiTapQuanLyNguoiDung";
 // import BaiTapOanTuXi from "./DemoRedux/BaiTapOanTuXi/BaiTapOanTuXi";
-// import BaiTapBookingTicket from "./DemoRedux/BaiTapBookingTicket/BaiTapBookingTicket";
-
+import BaiTapBookingTicket from "./DemoRedux/BaiTapBookingTicket/BaiTapBookingTicket";
+// import LifeCycleReact from "./DemoRedux/LifeCycleReact/LifeCycleReact";
 
 
 
@@ -48,9 +48,10 @@ function App() {
     {/* <ExcerciseCart /> */}
     {/* <BaiTapGioHang /> */}
     {/* <BaiTapGameXucXac /> */}
-    <BaiTapQuanLyNguoiDung />
+    {/* <BaiTapQuanLyNguoiDung /> */}
     {/* <BaiTapOanTuXi /> */}
-    {/* <BaiTapBookingTicket /> */}
+    <BaiTapBookingTicket />
+    {/* <LifeCycleReact /> */}
     </div>
   );
 }

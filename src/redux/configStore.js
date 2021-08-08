@@ -6,6 +6,8 @@ import { baiTapQuanLyNguoiDungReducer } from "./reducers/baiTapQuanLyNguoiDungRe
 
 import { BaiTapOanTuXiReducer } from "./reducers/BaiTapOanTuXiReducer";
 
+import { BaiTapBookingTicketReducer } from "./reducers/BaiTapBookingTicketReducer";
+
 // state trong redux se co ten goi moi: reducer va no chua function
 const rootReducer = combineReducers({
   // Cac state ung dung se dc luu tai day, ngan cach boi dau phay
@@ -13,7 +15,7 @@ const rootReducer = combineReducers({
   BaiTapGameXucXacReducer: BaiTapGameXucXacReducer,
   baiTapQuanLyNguoiDungReducer: baiTapQuanLyNguoiDungReducer,
   BaiTapOanTuXiReducer: BaiTapOanTuXiReducer,
-
+  BaiTapBookingTicketReducer: BaiTapBookingTicketReducer,
 //   reducerB: (state='',action) => {
 //     console.log('action2', action);
 //     return state;

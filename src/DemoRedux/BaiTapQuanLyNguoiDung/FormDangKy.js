@@ -114,7 +114,7 @@ class FormDangKy extends Component {
   render() {
 
     let { taiKhoan, hoTen, matKhau, email, soDienThoai, maLoaiNguoiDung } =
-      this.props.nguoiDung.values;
+      this.props.nguoiDungChinhSua;
   
 
 

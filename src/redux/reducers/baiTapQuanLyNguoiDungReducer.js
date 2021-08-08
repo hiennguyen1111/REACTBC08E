@@ -17,24 +17,6 @@ const stateDefault = {
         maLoaiNguoiDung: "KhachHang",
       }],
 
-    nguoiDung: {
-      values: {
-        taiKhoan: "",
-        hoTen: "",
-        matKhau: "",
-        email: "",
-        soDienThoai: "",
-        maLoaiNguoiDung: "KhachHang",
-      },
-      errors: {
-        taiKhoan: "",
-        hoTen: "",
-        matKhau: "",
-        email: "",
-        soDienThoai: "",
-        maLoaiNguoiDung: "",
-      },
-    }
 };
 
 export const baiTapQuanLyNguoiDungReducer = (state=stateDefault,action) => {
@@ -59,7 +41,7 @@ export const baiTapQuanLyNguoiDungReducer = (state=stateDefault,action) => {
         }
 
         case 'HANDLE_CHANGE_INPUT': {
-          state.nguoiDung = action.nguoiDung;
+          state.nguoiDung = action.nguoiDungChinhSua;
 
 
           return {...state}
