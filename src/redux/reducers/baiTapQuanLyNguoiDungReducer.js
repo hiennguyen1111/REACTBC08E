@@ -7,16 +7,34 @@ const stateDefault = {
       email: "nguyennguyen@gmail.com",
       soDienThoai: "0862985516",
       maLoaiNguoiDung: "KhachHang",
-    },
-    {
+    }],
+    nguoiDungChinhSua: [{
         taiKhoan: "nguyentran",
         hoTen: "Nguyen Tran",
         matKhau: "987654321",
         email: "nguyentran@gmail.com",
         soDienThoai: "0862985518",
         maLoaiNguoiDung: "KhachHang",
+      }],
+
+    nguoiDung: {
+      values: {
+        taiKhoan: "",
+        hoTen: "",
+        matKhau: "",
+        email: "",
+        soDienThoai: "",
+        maLoaiNguoiDung: "KhachHang",
       },
-  ],
+      errors: {
+        taiKhoan: "",
+        hoTen: "",
+        matKhau: "",
+        email: "",
+        soDienThoai: "",
+        maLoaiNguoiDung: "",
+      },
+    }
 };
 
 export const baiTapQuanLyNguoiDungReducer = (state=stateDefault,action) => {
@@ -32,6 +50,35 @@ export const baiTapQuanLyNguoiDungReducer = (state=stateDefault,action) => {
             const mangNguoiDungCapNhat = [...state.mangNguoiDung]
             state.mangNguoiDung = mangNguoiDungCapNhat.filter(nguoiDung => nguoiDung.taiKhoan !== action.taiKhoan);
             return {...state};
+        }
+
+        case 'CHINH_SUA': {
+          state.nguoiDung.values = action.nguoiDungChinhSua;
+          state.nguoiDung = {...state.nguoiDung}
+          return {...state}
+        }
+
+        case 'HANDLE_CHANGE_INPUT': {
+          state.nguoiDung = action.nguoiDung;
+
+
+          return {...state}
+        }
+
+        case 'CAP_NHAT_NGUOI_DUNG': {
+          const mangNguoiDungCapNhat = [...state.mangNguoiDung]
+          // Tim ra nguoi dung can cap nhat
+          let nguoiDungCapNhat = mangNguoiDungCapNhat.find(nguoiDung => nguoiDung.taiKhoan === action.nguoiDungCapNhat.taiKhoan);
+          if(nguoiDungCapNhat){
+            nguoiDungCapNhat.hoTen = action.nguoiDungCapNhat.hoTen
+            nguoiDungCapNhat.email = action.nguoiDungCapNhat.email
+            nguoiDungCapNhat.soDienThoai = action.nguoiDungCapNhat.soDienThoai
+            nguoiDungCapNhat.matKhau = action.nguoiDungCapNhat.matKhau
+            nguoiDungCapNhat.maLoaiNguoiDung = action.nguoiDungCapNhat.maLoaiNguoiDung
+
+          }
+          state.mangNguoiDung = mangNguoiDungCapNhat;
+          return {...state}
         }
         default: return state
     }

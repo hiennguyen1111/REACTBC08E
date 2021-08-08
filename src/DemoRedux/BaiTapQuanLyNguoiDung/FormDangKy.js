@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-
 class FormDangKy extends Component {
   state = {
     values: {
@@ -13,58 +12,67 @@ class FormDangKy extends Component {
       maLoaiNguoiDung: "KhachHang",
     },
     errors: {
-        taiKhoan: '',
-        hoTen: '',
-        matKhau: '',
-        email: '',
-        soDienThoai: '',
-        maLoaiNguoiDung: '',
-    }
+      taiKhoan: "",
+      hoTen: "",
+      matKhau: "",
+      email: "",
+      soDienThoai: "",
+      maLoaiNguoiDung: "",
+    },
   };
 
   handleChangeInput = (event) => {
     let { value, name } = event.target;
-    let newValues = {...this.state.values}
+    let newValues = { ...this.props.nguoiDung.values };
     newValues[name] = value;
 
-    let attrValue = '';
+    let attrValue = "";
     let regex;
 
-    if(event.target.getAttribute('typeEmail')){
-        attrValue = event.target.getAttribute('typeEmail');
-        regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if (event.target.getAttribute("typeEmail")) {
+      attrValue = event.target.getAttribute("typeEmail");
+      regex =
+        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     }
 
-
-
-    let newErros = {...this.state.errors}
-    let messageError = '';
-    if(value.trim() === ''){
-        messageError = name + ' khong duoc bo trong!';
+    let newErrors = { ...this.props.nguoiDung.errors };
+    let messageError = "";
+    if (value.trim() === "") {
+      messageError = name + " khong duoc bo trong!";
     }
 
     // Neu la email thi ktra them nua
-    if(regex){
-        if(attrValue === 'email'){
-            if(!regex.test(value)){
-                messageError = name + ' phai dung dinh dang!'
-            }
+    if (regex) {
+      if (attrValue === "email") {
+        if (!regex.test(value)) {
+          messageError = name + " phai dung dinh dang!";
         }
+      }
     }
 
-    newErros[name]= messageError;
+    newErrors[name] = messageError;
     // Xu ly setState
-    this.setState({
-        values: newValues,
-        errors: newErros
-    })
+    // this.setState({
+    //   values: newValues,
+    //   errors: newErros,
+    // });
 
     // this.setState({
     //   [name]: value,
     // });
     // Kiem tra gtri sau khi state thay doi va sau khi render
     // console.log(this.state);
+
+    this.props.dispatch({
+      type:'HANDLE_CHANGE_INPUT',
+      nguoiDung: {
+        values:newValues,
+        errors:newErrors
+      }
+    })
   };
+
+  
 
   handleSubmit = (event) => {
     // Can tro su kien submit browser
@@ -76,33 +84,40 @@ class FormDangKy extends Component {
 
     // Duyet bat error phai = null het moi hop le
     for (let key in this.state.errors) {
-        if(this.state.errors[key] !== ''){
-            valid = false;
-            break;
-        }
+      if (this.state.errors[key] !== "") {
+        valid = false;
+        break;
+      }
     }
 
     // Duyet bat tat ca value phai khac null moi hop le
     for (let key in this.state.values) {
-        if(this.state.values[key] === ''){
-            valid = false;
-            break;
-        }
+      if (this.state.values[key] === "") {
+        valid = false;
+        break;
+      }
     }
 
-    if(!valid) { // Khong hop le cho dung lai
-        alert('Du lieu khong hop le!')
-        return;
+    if (!valid) {
+      // Khong hop le cho dung lai
+      alert("Du lieu khong hop le!");
+      return;
     }
     // submit len redux tai day khi tat ca hop le
     const action = {
-        type: 'THEM_NGUOI_DUNG',
-        nguoiDung: this.state.values
-    }
+      type: "THEM_NGUOI_DUNG",
+      nguoiDung: this.state.values,
+    };
     this.props.dispatch(action);
   };
 
   render() {
+
+    let { taiKhoan, hoTen, matKhau, email, soDienThoai, maLoaiNguoiDung } =
+      this.props.nguoiDung.values;
+  
+
+
     return (
       <form className="card mt-5" onSubmit={this.handleSubmit}>
         <div className="card-header text-white bg-dark">Form dang ky</div>
@@ -112,6 +127,7 @@ class FormDangKy extends Component {
               <div className="form-group">
                 <p>Tai Khoan</p>
                 <input
+                  value={taiKhoan}
                   className="form-control"
                   name="taiKhoan"
                   onChange={this.handleChangeInput}
@@ -121,6 +137,7 @@ class FormDangKy extends Component {
               <div className="form-group">
                 <p>Mat khau</p>
                 <input
+                  value={matKhau}
                   className="form-control"
                   name="matKhau"
                   type="password"
@@ -130,7 +147,8 @@ class FormDangKy extends Component {
               </div>
               <div className="form-group">
                 <p>Email</p>
-                <input 
+                <input
+                  value={email}
                   typeEmail="email"
                   className="form-control"
                   name="email"
@@ -143,6 +161,7 @@ class FormDangKy extends Component {
               <div className="form-group">
                 <p>Ho ten </p>
                 <input
+                  value={hoTen}
                   className="form-control"
                   name="hoTen"
                   onChange={this.handleChangeInput}
@@ -152,6 +171,7 @@ class FormDangKy extends Component {
               <div className="form-group">
                 <p>So dien thoai</p>
                 <input
+                  value={soDienThoai}
                   className="form-control"
                   name="soDienThoai"
                   onChange={this.handleChangeInput}
@@ -161,6 +181,7 @@ class FormDangKy extends Component {
               <div className="form-group">
                 <p>Ma loai nguoi dung</p>
                 <select
+                  value={maLoaiNguoiDung}
                   className="form-control"
                   name="maLoaiNguoiDung"
                   onChange={this.handleChangeInput}
@@ -176,11 +197,24 @@ class FormDangKy extends Component {
           <button className="btn btn-outline-success mr-2" type="submit">
             Dang ky
           </button>
-          <button className="btn btn-outline-primary">Cap nhat</button>
+          <button type="button" onClick={()=>{
+            const action = {
+              type:'CAP_NHAT_NGUOI_DUNG',
+              nguoiDungCapNhat: this.props.nguoiDung.values
+            }
+            this.props.dispatch(action);
+          }} className="btn btn-outline-primary">Cap nhat</button>
         </div>
       </form>
     );
   }
 }
 
-export default  connect() (FormDangKy)
+const mapStateToProps = (state) => {
+  return {
+    nguoiDungChinhSua: state.baiTapQuanLyNguoiDungReducer.nguoiDungChinhSua,
+    nguoiDung: state.baiTapQuanLyNguoiDungReducer.nguoiDung
+  };
+};
+
+export default connect(mapStateToProps)(FormDangKy);

@@ -97,7 +97,7 @@ export default class BaiTapThuKinh extends Component {
   render() {
     let { chiTietSanPham } = this.state;
     return (
-      <div className="container-fluid">
+      <div className="container-fluid-glass">
         <header>
           <h3 className="text-center text-white p-4">TRY GLASSES APP ONLINE</h3>
         </header>

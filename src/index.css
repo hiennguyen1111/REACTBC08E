@@ -22,7 +22,7 @@ code {
 } */
 
 /* BAI TAP THU KINH*/
-.container-fluid {
+.container-fluid-glass {
   padding: 0;
   background-image: url('./assets/Glasses/background.jpg') ;
   background-repeat: no-repeat;
@@ -30,7 +30,7 @@ code {
   background-size: cover;
   z-index: -1;
 }
-.container-fluid .model .after {
+.container-fluid-glass .model .after {
   overflow: hidden; 
   margin-bottom: 40px;
 }

@@ -43,7 +43,14 @@ class TableDanhSachNguoiDung extends Component {
                         }
                         this.props.dispatch(action)
                     }}>Xoa</button>
-                    <button className="btn btn-outline-primary">
+
+                    <button onClick={()=>{
+                      const action = {
+                        type:'CHINH_SUA',
+                        nguoiDungChinhSua: nguoiDung
+                      }
+                      this.props.dispatch(action)
+                    }} className="btn btn-outline-primary">
                       Chinh sua
                     </button>
                   </td>
@@ -60,7 +67,8 @@ class TableDanhSachNguoiDung extends Component {
  * { return    <=>     ()}
  */
 const mapStateToProps = (state) => ({
-  mangNguoiDung: state.baiTapQuanLyNguoiDungReducer.mangNguoiDung,
+  mangNguoiDung: state.baiTapQuanLyNguoiDungReducer.mangNguoiDung
+
 });
 
 export default connect(mapStateToProps)(TableDanhSachNguoiDung);
