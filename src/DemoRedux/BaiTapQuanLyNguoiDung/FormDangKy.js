@@ -77,22 +77,22 @@ class FormDangKy extends Component {
   handleSubmit = (event) => {
     // Can tro su kien submit browser
     event.preventDefault();
-    console.log("state", this.state);
+    console.log("state", this.props.nguoiDung);
 
     // Bat truong hop loi khong cho submit
     let valid = true;
 
     // Duyet bat error phai = null het moi hop le
-    for (let key in this.state.errors) {
-      if (this.state.errors[key] !== "") {
+    for (let key in this.props.nguoiDung.errors) {
+      if (this.props.nguoiDung.errors[key] !== "") {
         valid = false;
         break;
       }
     }
 
     // Duyet bat tat ca value phai khac null moi hop le
-    for (let key in this.state.values) {
-      if (this.state.values[key] === "") {
+    for (let key in this.props.nguoiDung.values) {
+      if (this.props.nguoiDung.values[key] === "") {
         valid = false;
         break;
       }
@@ -106,7 +106,7 @@ class FormDangKy extends Component {
     // submit len redux tai day khi tat ca hop le
     const action = {
       type: "THEM_NGUOI_DUNG",
-      nguoiDung: this.state.values,
+      nguoiDung: this.props.nguoiDung.values,
     };
     this.props.dispatch(action);
   };

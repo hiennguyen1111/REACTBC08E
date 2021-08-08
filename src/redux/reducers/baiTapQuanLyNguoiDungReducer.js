@@ -68,14 +68,18 @@ export const baiTapQuanLyNguoiDungReducer = (state=stateDefault,action) => {
         case 'CAP_NHAT_NGUOI_DUNG': {
           const mangNguoiDungCapNhat = [...state.mangNguoiDung]
           // Tim ra nguoi dung can cap nhat
-          let nguoiDungCapNhat = mangNguoiDungCapNhat.find(nguoiDung => nguoiDung.taiKhoan === action.nguoiDungCapNhat.taiKhoan);
-          if(nguoiDungCapNhat){
-            nguoiDungCapNhat.hoTen = action.nguoiDungCapNhat.hoTen
-            nguoiDungCapNhat.email = action.nguoiDungCapNhat.email
-            nguoiDungCapNhat.soDienThoai = action.nguoiDungCapNhat.soDienThoai
-            nguoiDungCapNhat.matKhau = action.nguoiDungCapNhat.matKhau
-            nguoiDungCapNhat.maLoaiNguoiDung = action.nguoiDungCapNhat.maLoaiNguoiDung
+          // let nguoiDungCapNhat = mangNguoiDungCapNhat.find(nguoiDung => nguoiDung.taiKhoan === action.nguoiDungCapNhat.taiKhoan);
+          let index = mangNguoiDungCapNhat.findIndex(nguoiDung=>nguoiDung.taiKhoan === action.nguoiDungCapNhat.taiKhoan)
+          // if(nguoiDungCapNhat){
+          //   nguoiDungCapNhat.hoTen = action.nguoiDungCapNhat.hoTen
+          //   nguoiDungCapNhat.email = action.nguoiDungCapNhat.email
+          //   nguoiDungCapNhat.soDienThoai = action.nguoiDungCapNhat.soDienThoai
+          //   nguoiDungCapNhat.matKhau = action.nguoiDungCapNhat.matKhau
+          //   nguoiDungCapNhat.maLoaiNguoiDung = action.nguoiDungCapNhat.maLoaiNguoiDung
 
+          // }
+          if(index !== -1) {
+            mangNguoiDungCapNhat[index] = action.nguoiDungCapNhat;
           }
           state.mangNguoiDung = mangNguoiDungCapNhat;
           return {...state}
