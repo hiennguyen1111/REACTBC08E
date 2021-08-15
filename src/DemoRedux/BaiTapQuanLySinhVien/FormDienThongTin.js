@@ -9,7 +9,7 @@ class FormDienThongTin extends Component {
       soDienThoai: "",
       email: "",
     },
-    errorsValues: {
+    errorValues: {
       maSinhVien: "",
       hoTen: "",
       soDienThoai: "",
@@ -31,7 +31,7 @@ class FormDienThongTin extends Component {
         /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     }
 
-    let newErrors = { ...this.props.sinhVien.errorsValues };
+    let newErrors = { ...this.props.sinhVien.errorValues };
     let messageError = "";
     if (value.trim() === "") {
       messageError = name + " khong duoc bo trong!";
@@ -52,7 +52,7 @@ class FormDienThongTin extends Component {
       type: "HANDLE_CHANGE_INPUT_SV",
       sinhVien: {
         values: newValues,
-        errorsValues: newErrors,
+        errorValues: newErrors,
       },
     });
   };
@@ -66,8 +66,8 @@ class FormDienThongTin extends Component {
     let valid = true;
 
     // Duyet bat error phai = null het moi hop le
-    for (let key in this.props.sinhVien.errorsValues) {
-      if (this.props.sinhVien.errorsValues[key] !== "") {
+    for (let key in this.props.sinhVien.errorValues) {
+      if (this.props.sinhVien.errorValues[key] !== "") {
         valid = false;
         break;
       }
@@ -114,7 +114,7 @@ class FormDienThongTin extends Component {
                   onChange={this.handleChangeInputSV}
                 />
                 <p className="text-danger">
-                  {this.state.errorsValues.maSinhVien}
+                  {this.state.errorValues.maSinhVien}
                 </p>
               </div>
 
@@ -126,7 +126,7 @@ class FormDienThongTin extends Component {
                   name="hoTen"
                   onChange={this.handleChangeInputSV}
                 />
-                <p className="text-danger">{this.state.errorsValues.hoTen}</p>
+                <p className="text-danger">{this.state.errorValues.hoTen}</p>
               </div>
             </div>
             <div className="col-6">
@@ -139,7 +139,7 @@ class FormDienThongTin extends Component {
                   onChange={this.handleChangeInputSV}
                 />
                 <p className="text-danger">
-                  {this.state.errorsValues.soDienThoai}
+                  {this.state.errorValues.soDienThoai}
                 </p>
               </div>
 
@@ -152,7 +152,7 @@ class FormDienThongTin extends Component {
                   name="email"
                   onChange={this.handleChangeInputSV}
                 />
-                <p className="text-danger">{this.state.errorsValues.email}</p>
+                <p className="text-danger">{this.state.errorValues.email}</p>
               </div>
             </div>
           </div>

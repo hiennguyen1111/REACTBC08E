@@ -16,6 +16,24 @@ const stateDefault = {
         soDienThoai: "0862985518",
         maLoaiNguoiDung: "KhachHang",
       }],
+      nguoiDung: {
+        values: {
+            taiKhoan: '',
+            matKhau: '',
+            email: '',
+            hoTen: '',
+            soDienThoai: '',
+            maLoaiNguoiDung: 'KhachHang'
+        },
+        errors: {
+            taiKhoan: '',
+            matKhau: '',
+            email: '',
+            hoTen: '',
+            soDienThoai: '',
+            maLoaiNguoiDung: ''
+        }
+    }
 
 };
 

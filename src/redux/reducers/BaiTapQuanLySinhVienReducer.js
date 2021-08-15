@@ -14,6 +14,22 @@ const stateDefault = {
       soDienThoai: "0862985516",
       email: "nguyennguyen@gmail.com",
     },
+
+    sinhVien: {
+        values: {
+            maSinhVien:'',
+            hoTen: '',
+            email: '',           
+            soDienThoai: ''
+        },
+        errorValues: {
+            maSinhVien:'',
+            hoTen: '',
+            email: '',           
+            soDienThoai: ''
+        }
+    }
+
 };
 
 export const BaiTapQuanLySinhVienReducer = (state = stateDefault, action) => {
@@ -38,7 +54,7 @@ export const BaiTapQuanLySinhVienReducer = (state = stateDefault, action) => {
     }
 
     case "HANDLE_CHANGE_INPUT_SV": {
-      state.sinhVien = action.sinhVienChinhSua;
+      state.sinhVien = action.sinhVien;
 
       return { ...state };
     }
