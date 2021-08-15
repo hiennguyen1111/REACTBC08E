@@ -1,24 +1,33 @@
 import React, { Component } from 'react'
 import { PureComponent } from 'react';
-// PureComponent dung de toi uu render, nhan biet props co thay doi thi se render, khong thi se khong render
 
 export default class Child extends PureComponent {
-
-    constructor(props){
+    
+    constructor(props) {
         super(props);
         this.state = {
 
         }
         console.log('constructor child')
+        this.timeout = {}
     }
+    
+    // shouldComponentUpdate(newProps,newState) {
 
-    timeout = {}
+    //     console.log('newProps',newProps);
+    //     console.log('this.props',this.props)
+    //     console.log('shouldComponentUpdate child')
+    //     if(this.props.like === newProps.like) {
+    //         return false;
+    //     }
 
-    static getDerivedStateFromProps(newProps,currentState){
+    //     return true;
+    // }
+
+    static getDerivedStateFromProps(newProps,currentState) {
         console.log('getDerivedStateFromProps child')
         return null;
     }
-
 
     render() {
         console.log('render child')
@@ -28,43 +37,38 @@ export default class Child extends PureComponent {
                     Id: {this.props.product.id}
                 </div>
                 <div>
-                    name: {this.props.product.name}
+                    Name: {this.props.product.name}
                 </div>
-            <footer className="bg-dark p-5 text-white text-center">
-                Footer
-            </footer>
+                <footer className="p-5 bg-dark text-white text-center">
+                    footer
+                </footer>
             </div>
         )
     }
 
     componentDidMount(){
-        // Ham setInterval kich hoat 1 khoang time 1 lan
-        this.timeout = setInterval(()=>{
+
+        //Hàm setInterval kích hoạt 1 khoảng thời gian 1 lần
+       this.timeout = setInterval(() => {
             console.log('1')
-        },1000);
+        }, 1000);
+
         console.log('componentDidMount child')
     }
 
-    componentDidUpdate(prevProps,prevState){
-        // Han che setState trong ham nay ma khong co if se bi vong lap vo tan => Dung if de kiem tra
-        console.log('componentDidUpdate child')
-    }
 
-    shouldComponentUpdate(newProps,newState){
-        console.log('newProps',newProps);
-        console.log('this.props',this.props);
-        console.log('shouldComponentUpdate child')
-        if(this.props.like === newProps.like){
-            return false; // Muon set cung giao dien thi return false
-        }
-        return true;
-        // this.props la props cu cua render lan truoc
-        // newProps la props truoc khi render
-    }
-    componentWillUnmount(){
-        // Chay trc khi component huy di (mat khoi giao dien)
-        clearInterval(this.timeout);
+    componentDidUpdate(prevProps,prevState) {
+        
+
+        //Hạn chế setState (xem xét kỹ việc setState) trong hàm này => Dùng if để kiểm tra
+        console.log('componentDidUpdate child')
+    } 
+
+
+    componentWillUnmount() {
+        //Chạy trước khi component huỷ đi (mất khỏi giao diện) => Dùng huỷ các biến chạy ngầm hoặc xử lý chuyển trang
+
+        // clearInterval(this.timeout);
         console.log('componentWillUnmount')
     }
 }
-

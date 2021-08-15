@@ -1,12 +1,11 @@
 import { combineReducers, createStore } from "redux";
 import { gioHangReducer } from "./reducers/gioHangReducer";
-
 import { BaiTapGameXucXacReducer } from "./reducers/BaiTapGameXucXacReducer";
 import { baiTapQuanLyNguoiDungReducer } from "./reducers/baiTapQuanLyNguoiDungReducer";
-
 import { BaiTapOanTuXiReducer } from "./reducers/BaiTapOanTuXiReducer";
-
 import { BaiTapBookingTicketReducer } from "./reducers/BaiTapBookingTicketReducer";
+
+import { BaiTapQuanLySinhVienReducer } from './reducers/BaiTapQuanLySinhVienReducer';
 
 // state trong redux se co ten goi moi: reducer va no chua function
 const rootReducer = combineReducers({
@@ -16,6 +15,7 @@ const rootReducer = combineReducers({
   baiTapQuanLyNguoiDungReducer: baiTapQuanLyNguoiDungReducer,
   BaiTapOanTuXiReducer: BaiTapOanTuXiReducer,
   BaiTapBookingTicketReducer: BaiTapBookingTicketReducer,
+  BaiTapQuanLySinhVienReducer: BaiTapQuanLySinhVienReducer,
 //   reducerB: (state='',action) => {
 //     console.log('action2', action);
 //     return state;

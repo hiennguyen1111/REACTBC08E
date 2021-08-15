@@ -1,67 +1,74 @@
 import React, { Component } from 'react'
 import Child from './Child';
 
-
 export default class LifeCycleReact extends Component {
 
-    constructor(props){
+
+    constructor(props) {
         super(props);
         this.state = {
             number: 1,
             like: 1,
             product: {
-                id: 1,
-                name: 'iphone'
+                id:1,
+                name:'Iphone'
             }
         }
+
         console.log('constructor')
     }
 
-    shouldComponentUpdate(newProps,newState){
+    shouldComponentUpdate(newProps, newState) {
+
         console.log('shouldComponentUpdate')
+
         return true;
     }
 
-    static getDerivedStateFromProps(newProps,currentState){
+    static getDerivedStateFromProps(newProps, currentState) {
         console.log('getDerivedStateFromProps')
         return null;
-    }
 
+    }
 
     render() {
         console.log('render')
         return (
             <div className="container">
-                <h3>LifeCycle React</h3>
+                <h3>Lifecycle react</h3>
                 <h3>Number: {this.state.number}</h3>
-                <button className="btn btn-success" onClick={()=>{
+                <button className="btn btn-outline-success" onClick={() => {
                     this.setState({
                         number: this.state.number + 1
                     })
                 }}>+</button>
                 <h3>Product name parent: {this.state.product.name}</h3>
-                <button onClick={()=>{
+                <button onClick ={()=>{
+
                     let product = this.state.product;
-                    product.name = 'Samsung galaxy'
+                    product.name = 'Samsung galaxy note 20'
                     this.setState({
-                        product:{...product}
+                        product: {...product}
                     })
-                }}>
-                    Change Product
-                </button>
-                <div className="abc">Slide1</div>
-                <div className="abc">Slide1</div>
-                {this.state.number > 2 ? '' : 
-                <Child product={this.state.product} />}
+
+                }}>Change product</button>
+                <div className="abc">slide1</div>
+                <div className="abc">slide1</div>
+                {this.state.number > 2 ? '' :  <Child  product={this.state.product}/>}
+            
             </div>
         )
     }
 
-    componentDidMount(){
+    componentDidMount() {
+
+        //Nghiệp vụ về api hoặc thư viện
         console.log('componentDidMount')
     }
-
-    componentDidUpdate(prevProps,prevState){
+    componentDidUpdate(prevProps, prevState) {
+        //Hạn chế setState (xem xét kỹ việc setState) trong hàm này  => Dùng if để kiểm tra
         console.log('componentDidUpdate')
     }
+
+
 }
