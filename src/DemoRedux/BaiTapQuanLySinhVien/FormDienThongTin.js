@@ -31,7 +31,7 @@ class FormDienThongTin extends Component {
         /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     }
 
-    let newErrors = { ...this.props.sinhVien.errorsValues };
+    let newErrors = { ...this.props.sinhVien.errors };
     let messageError = "";
     if (value.trim() === "") {
       messageError = name + " khong duoc bo trong!";
@@ -52,7 +52,7 @@ class FormDienThongTin extends Component {
       type: "HANDLE_CHANGE_INPUT_SV",
       sinhVien: {
         values: newValues,
-        errorsValues: newErrors,
+        errors: newErrors,
       },
     });
   };
@@ -66,8 +66,8 @@ class FormDienThongTin extends Component {
     let valid = true;
 
     // Duyet bat error phai = null het moi hop le
-    for (let key in this.props.sinhVien.errorsValues) {
-      if (this.props.sinhVien.errorsValues[key] !== "") {
+    for (let key in this.props.sinhVien.errors) {
+      if (this.props.sinhVien.errors[key] !== "") {
         valid = false;
         break;
       }
@@ -95,7 +95,8 @@ class FormDienThongTin extends Component {
   };
 
   render() {
-    let { maSinhVien, hoTen, soDienThoai, email } = this.props.sinhVienChinhSua;
+    let { maSinhVien, hoTen, soDienThoai, email } = this.props.sinhVien.values;
+    console.log(this.props.sinhVien.values)
 
     return (
       <form className="card mt-5" onSubmit={this.handleSubmitSV}>

@@ -44,7 +44,7 @@ class TableDanhSachSinhVien extends Component {
                       onClick={() => {
                         const action = {
                           type: "CHINH_SUA_SINH_VIEN",
-                          sinhVienChinhSua: sinhVien,
+                          sinhVienChinhSua: sinhVien
                         };
                         this.props.dispatch(action);
                       }}

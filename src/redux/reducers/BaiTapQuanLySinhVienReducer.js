@@ -7,13 +7,27 @@ const stateDefault = {
       email: "nguyennguyen@gmail.com",
     },
   ],
-  sinhVienChinhSua: 
-    {
-      maSinhVien: "12",
-      hoTen: "Nguyen Hien",
-      soDienThoai: "0862985516",
-      email: "nguyennguyen@gmail.com",
+  sinhVienChinhSua:
+  {
+    maSinhVien: "12",
+    hoTen: "Nguyen Hien",
+    soDienThoai: "0862985516",
+    email: "nguyennguyen@gmail.com",
+  },
+  sinhVien: {
+    values: {
+      maSinhVien: '',
+      hoTen: '',
+      soDienThoai: '',
+      email: '',
     },
+    errors: {
+      maSinhVien: '',
+      hoTen: '',
+      soDienThoai: '',
+      email: '',
+    }
+  }
 };
 
 export const BaiTapQuanLySinhVienReducer = (state = stateDefault, action) => {
@@ -38,7 +52,8 @@ export const BaiTapQuanLySinhVienReducer = (state = stateDefault, action) => {
     }
 
     case "HANDLE_CHANGE_INPUT_SV": {
-      state.sinhVien = action.sinhVienChinhSua;
+      // Đổi từ SV chỉnh sửa sang sinhVien
+      state.sinhVien = action.sinhVien;
 
       return { ...state };
     }
